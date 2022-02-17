@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
+import Welcome from './pages/Welcome';
+import MoviesList from './pages/MoviesList';
+import MovieDetail from './pages/MovieDetail';
+import './css/App.css';
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      APP.JS <br />
+      {/* Condicional */}
+      {/* { movies &&
         <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          Tranqui, funciona App.js!! <br></br>
+          Pelis cargadas: { movies.length }
+       </p>
+      } */}
+
+      {/* Rutas */}
+      <Router>
+        <Routes>
+          <Route path='/' element={<Welcome />} />
+          <Route path='/moviesList' element={<MoviesList />} />
+          <Route path='/movieDetail/:id' element={<MovieDetail />} />
+        </Routes>
+      </Router>
+
     </div>
   );
 }
